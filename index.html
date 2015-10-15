@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+  <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+  <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+  <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.min.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  <style>
+    body {
+      padding: 20px;
+    }
+    
+    .myGrid {
+      width: 100%;
+      height: 380px;
+      margin-top: 20px;
+    }
+    
+    .simple-angular-report-grid {
+      width: 50%;
+    }
+    
+    form {
+      width: 20%;
+    }
+  </style>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+</head>
+
+<body>
+  <h1><a href="https://github.com/PhillyWebGuy/simple-angularjs-report-grid">simple-angularjs-report-grid</a></h1>
+  <div ng-controller="myController" class="simple-angular-report-grid">
+    <form class="inline-form">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Start Date</label>
+        <input type="text" class="form-control" data-id="startDate" ng-model="startDate" date-picker="{minDate: -20, maxDate: '+1M +10D' }" placeholder="mm/dd/yyyy"> </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">End Date</label>
+        <input type="text" class="form-control" data-id="endDate" ng-model="endDate" date-picker="{minDate: -20, maxDate: '+1M +10D' }" placeholder="mm/dd/yyyy"> </div>
+      <button type="submit" ng-click="getData()" class="btn btn-default">Submit</button>
+    </form>
+    <div ui-grid="{ data: reportData }" class="myGrid"></div>
+  </div>
+</body>
+
+</html>
