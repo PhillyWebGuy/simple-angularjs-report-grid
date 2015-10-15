@@ -4,7 +4,7 @@ app.controller('myController', function($scope, $http) {
     
     $scope.getData = function() {
     
-        var myUrl = 'data/data.json?do=getData&startDate' + "=" + $scope.startDate + "endDate" + "=" + $scope.endDate;
+        var myUrl = 'data/data.json?do=getData&startDate' + "=" + $scope.startDate + "&endDate" + "=" + $scope.endDate;
     
         $http({
             method: 'GET',
